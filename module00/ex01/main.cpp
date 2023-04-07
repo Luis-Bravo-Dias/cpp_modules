@@ -6,13 +6,20 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:40:08 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/06 17:16:50 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:03:19 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include "utils.hpp"
+
+std::string	input()
+{
+	std::string	line;
+	
+	while (line.empty())
+		std::getline(std::cin, line);
+	return (line);
+}
 
 int	main()
 {
@@ -27,10 +34,7 @@ int	main()
 		if (input ==  "EXIT")
 			break ;
 		else if (input == "ADD")
-		{
 			book.add_contact();
-			std::cout << book.get_index() << std::endl;
-		}
 		else if (input == "SEARCH")
 		{
 			
