@@ -6,15 +6,15 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:13:50 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:03:54 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:02:11 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-#include <iostream>
-#include "Contact.hpp"
+# include "utils.hpp"
+# include "Contact.hpp"
 
 class PhoneBook
 {
@@ -28,7 +28,7 @@ class PhoneBook
 
 	private:
 		static int	_index;
-		Contact contact_list[8];
+		Contact _contact_list[8];
 };
 
 #endif

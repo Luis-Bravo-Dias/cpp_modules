@@ -6,35 +6,34 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/05 15:03:46 by lleiria-          #+#    #+#              #
-#    Updated: 2023/04/05 16:44:02 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/04/11 15:23:10 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	main.cpp \
-			PhoneBook.cpp \
-			Contact.cpp
+CXX 			= c++
 
-OBJS	=	$(addprefix objs/,$(SRCS:.cpp=.o))
+CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
-CPPFLAGS	=	c++ -Wall -Wextra -Werror -std=c++98
+RM 			= rm -f
 
-RM		=	rm -f
+NAME 		= PhoneBook
 
-NAME	=	PhoneBook
+INCLUDE 	= -I ./
 
-all:	$(NAME)
+SRCS 		= PhoneBook.cpp Contact.cpp main.cpp
 
-objs/%.o: %.cpp
-	@mkdir -p objs
-	$(CPPFLAGS) -c $< -o $@
+OBJS		= $(SRCS:.cpp=.o)
 
-$(NAME):	$(OBJS)
-	$(CPPFLAGS) $(OBJS) -o $(NAME)
+all:		$(NAME)
+
+$(NAME): 	$(OBJS)
+			$(CXX) $(CXXFLAGS) $(SRCS) $(INCLUDE) -c
+			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
 
 clean:
-	@$(RM) $(OBJS)
+			$(RM) -r $(OBJS)
 
-fclean:	clean
-	@$(RM) $(NAME)
+fclean : 	clean
+			$(RM) $(NAME)
 
-re:	fclean all
+re:			fclean all

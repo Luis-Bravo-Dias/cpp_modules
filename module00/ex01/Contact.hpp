@@ -6,14 +6,14 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:55:07 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/07 14:19:23 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:01:50 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-#include <iostream>
+# include <iostream>
 
 class Contact
 {

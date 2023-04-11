@@ -6,16 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:28:02 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:16:49 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:02:55 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
-{
-	this->_index = -1;
-}
+PhoneBook::PhoneBook(){}
 
 PhoneBook::~PhoneBook() {}
 
@@ -32,7 +29,7 @@ void PhoneBook::add_contact()
 		int	i = 0;
 		while (i < 7)
 		{
-			contact_list[i] = contact_list[i + 1];
+			_contact_list[i] = _contact_list[i + 1];
 			i++;
 		}
 		this->_index = 7;
@@ -40,25 +37,27 @@ void PhoneBook::add_contact()
 
 	std::cout << "Enter your data, please" << std::endl;
 	std::cout << "First name: " << std::endl;
-	contact_list[this->get_index()].setFirstName(input());
+	_contact_list[this->get_index()].setFirstName(input());
 	std::cout << "Last name: " << std::endl;
-	contact_list[this->get_index()].setLastName(input());
+	_contact_list[this->get_index()].setLastName(input());
 	std::cout << "Nickname: " << std::endl;
-	contact_list[this->get_index()].set_Nickname(input());
+	_contact_list[this->get_index()].set_Nickname(input());
 	std::cout << "Phone number: " << std::endl;
-	contact_list[this->get_index()].set_PhoneNumber(input());
+	_contact_list[this->get_index()].set_PhoneNumber(input());
 	std::cout << "Don't worry, but now I need you to tell your darkest secret" << std::endl;
-	contact_list[this->get_index()].set_DarkestSecret(input());
+	_contact_list[this->get_index()].set_DarkestSecret(input());
 	
 	return;
 }
 
 void	PhoneBook::search()
 {
-	if (contact_list[0].getFirstName().size() == 0)
+	if (_contact_list[0].getFirstName().size() == 0)
 	{
         std::cout << "Please ADD contacts first before SEARCH" << std::endl;
         return ;
     }
 	
 }
+
+int PhoneBook::_index = -1;

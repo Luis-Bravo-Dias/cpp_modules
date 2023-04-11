@@ -6,16 +6,14 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:22:29 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/07 15:33:45 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:02:22 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
-#include <iostream>
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+# include <iostream>
 
 std::string	input();
 
