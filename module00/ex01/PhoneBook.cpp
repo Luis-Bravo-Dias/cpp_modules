@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:28:02 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/11 14:02:55 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:46:36 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,92 @@ void PhoneBook::add_contact()
 	return;
 }
 
+void PhoneBook::display_choices(int i)
+{
+	std::string FirstName = _contact_list[i].getFirstName();
+	std::string LastName = _contact_list[i].getLastName();
+	std::string	Nickname = _contact_list[i].getNickname();
+	std::cout << i + 1 << "    |";
+	if (_contact_list[i].getFirstName().size() > 10)
+	{
+		FirstName.resize(9);
+		std::cout << FirstName << ".|";
+	}
+	else
+		std::cout << FirstName << "|";
+	if (_contact_list[i].getLastName().size() > 10)
+	{
+		LastName.resize(9);
+		std::cout << LastName << ".|";
+	}
+	else
+		std::cout << LastName << "|";
+	if (_contact_list[i].getNickname().size() > 10)
+	{
+		Nickname.resize(9);
+		std::cout << Nickname << ".";
+	}
+	else
+		std::cout << Nickname;
+	std::cout << std::endl;
+	return ;
+}
+
+void	PhoneBook::show_info(int index)
+{
+	std::cout << "First Name:" << std::endl;
+	std::cout << _contact_list[index].getFirstName() << std::endl;
+	std::cout << "Last Name:" << std::endl;
+	std::cout << _contact_list[index].getLastName() << std::endl;
+	std::cout << "Nickname:" << std::endl;
+	std::cout << _contact_list[index].getNickname() << std::endl;
+	std::cout << "First Name:" << std::endl;
+	std::cout << _contact_list[index].getPhoneNumber() << std::endl;
+	std::cout << "First Name:" << std::endl;
+	std::cout << _contact_list[index].getDarkestSecret() << std::endl << std::endl;
+	return ;
+}
+
 void	PhoneBook::search()
 {
+	int i = 0;
 	if (_contact_list[0].getFirstName().size() == 0)
 	{
-        std::cout << "Please ADD contacts first before SEARCH" << std::endl;
+        std::cout << "\e[31mPlease ADD contacts first before SEARCH\e[0m" << std::endl << std::endl;
         return ;
     }
-	
+	std::cout << "**************************************************" << std::endl;
+	std::cout << "*>>>>>>>>>>>>>>>>>\e[34mContact List\e[0m<<<<<<<<<<<<<<<<<<<*" << std::endl;
+	std::cout << "**************************************************" << std::endl;
+	std::cout << "Choose an index:" << std::endl;
+	std::cout << "Index|First Name|Last Name |Nickname  " << std::endl;
+	while (i <= get_index())
+	{
+		display_choices(i);
+		i++;
+	}
+	std::string choice = input();
+	if (choice.size() > 1)
+	{
+		std::cout << "\e[31mInvalid index\e[0m" << std::endl << std::endl;
+		return ;
+	}
+	if (isdigit(choice[0]))
+	{
+		int	index = choice[0] - 49;
+		if (_contact_list[index].getFirstName().size() == 0)
+		{
+			std::cout << "\e[31mInvalid index\e[0m" << std::endl << std::endl;
+			return ;
+		}
+		show_info(index);
+	}
+	else
+	{
+		std::cout << "\e[31mInvalid index\e[0m" << std::endl << std::endl;
+		return ;
+	}
+	return ;
 }
 
 int PhoneBook::_index = -1;

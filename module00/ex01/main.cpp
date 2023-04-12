@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:40:08 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/11 13:02:45 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:49:06 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 	while (1)
 	{
 		std::cout << "Welcome to the PhoneBook" << std::endl;
-		std::cout << "Chose your action:\n->ADD\n->SEARCH\n->EXIT" << std::endl;
+		std::cout << "Chose your action:" << std::endl << "\e[32m->ADD\e[0m" << std::endl << "\e[33m->SEARCH\e[0m" << std::endl << "\e[31m->EXIT\e[0m" << std::endl;
 		std::cin >> input;
 		if (input ==  "EXIT")
 			break ;
@@ -37,13 +37,12 @@ int	main()
 			book.add_contact();
 		else if (input == "SEARCH")
 		{
-			
+			book.search();
 		}
 		else
 		{
 			std::cout << std::endl;
-			std::cout << input << " command not found" << std::endl;
-			std::cout << std::endl;
+			std::cout << input << " command not found" << std::endl << std::endl;
 		}
 	}
 	return (0);
