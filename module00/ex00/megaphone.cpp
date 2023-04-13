@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:10:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/05 14:41:43 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:43:07 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int main(int  ac, char **av)
       int c = 0;
       while (input[c])
       {
-        putchar(toupper(input[c]));
+        input[c] = toupper(input[c]);
         c++;
       }
+      std::cout << input;
       i++;
     }
   }

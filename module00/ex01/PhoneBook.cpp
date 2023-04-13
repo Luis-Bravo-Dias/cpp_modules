@@ -6,11 +6,12 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:28:02 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/12 16:46:36 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:11:41 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 
 PhoneBook::PhoneBook(){}
 
@@ -38,19 +39,28 @@ void PhoneBook::add_contact()
 	std::cout << "Enter your data, please" << std::endl;
 	std::cout << "First name: " << std::endl;
 	_contact_list[this->get_index()].setFirstName(input());
+	if (std::cin.eof() == 1)
+		exit(1);
 	std::cout << "Last name: " << std::endl;
 	_contact_list[this->get_index()].setLastName(input());
+	if (std::cin.eof() == 1)
+		exit(1);
 	std::cout << "Nickname: " << std::endl;
 	_contact_list[this->get_index()].set_Nickname(input());
+	if (std::cin.eof() == 1)
+		exit(1);
 	std::cout << "Phone number: " << std::endl;
 	_contact_list[this->get_index()].set_PhoneNumber(input());
+	if (std::cin.eof() == 1)
+		exit(1);
 	std::cout << "Don't worry, but now I need you to tell your darkest secret" << std::endl;
 	_contact_list[this->get_index()].set_DarkestSecret(input());
-	
+	if (std::cin.eof() == 1)
+		exit(1);
 	return;
 }
 
-void PhoneBook::display_choices(int i)
+void PhoneBook::_display_choices(int i)
 {
 	std::string FirstName = _contact_list[i].getFirstName();
 	std::string LastName = _contact_list[i].getLastName();
@@ -62,26 +72,35 @@ void PhoneBook::display_choices(int i)
 		std::cout << FirstName << ".|";
 	}
 	else
+	{
+		FirstName.resize(10, ' ');
 		std::cout << FirstName << "|";
+	}
 	if (_contact_list[i].getLastName().size() > 10)
 	{
 		LastName.resize(9);
 		std::cout << LastName << ".|";
 	}
 	else
+	{
+		LastName.resize(10, ' ');
 		std::cout << LastName << "|";
+	}
 	if (_contact_list[i].getNickname().size() > 10)
 	{
 		Nickname.resize(9);
 		std::cout << Nickname << ".";
 	}
 	else
+	{
+		Nickname.resize(10, ' ');
 		std::cout << Nickname;
+	}
 	std::cout << std::endl;
 	return ;
 }
 
-void	PhoneBook::show_info(int index)
+void	PhoneBook::_show_info(int index)
 {
 	std::cout << "First Name:" << std::endl;
 	std::cout << _contact_list[index].getFirstName() << std::endl;
@@ -89,9 +108,9 @@ void	PhoneBook::show_info(int index)
 	std::cout << _contact_list[index].getLastName() << std::endl;
 	std::cout << "Nickname:" << std::endl;
 	std::cout << _contact_list[index].getNickname() << std::endl;
-	std::cout << "First Name:" << std::endl;
+	std::cout << "Phone Number:" << std::endl;
 	std::cout << _contact_list[index].getPhoneNumber() << std::endl;
-	std::cout << "First Name:" << std::endl;
+	std::cout << "Darkest Secret" << std::endl;
 	std::cout << _contact_list[index].getDarkestSecret() << std::endl << std::endl;
 	return ;
 }
@@ -111,7 +130,7 @@ void	PhoneBook::search()
 	std::cout << "Index|First Name|Last Name |Nickname  " << std::endl;
 	while (i <= get_index())
 	{
-		display_choices(i);
+		_display_choices(i);
 		i++;
 	}
 	std::string choice = input();
@@ -120,7 +139,7 @@ void	PhoneBook::search()
 		std::cout << "\e[31mInvalid index\e[0m" << std::endl << std::endl;
 		return ;
 	}
-	if (isdigit(choice[0]))
+	if (isdigit(choice[0]) && choice[0] >= '1' && choice[0] <= '8')
 	{
 		int	index = choice[0] - 49;
 		if (_contact_list[index].getFirstName().size() == 0)
@@ -128,7 +147,7 @@ void	PhoneBook::search()
 			std::cout << "\e[31mInvalid index\e[0m" << std::endl << std::endl;
 			return ;
 		}
-		show_info(index);
+		_show_info(index);
 	}
 	else
 	{
