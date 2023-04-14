@@ -6,12 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:28:02 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/13 17:11:41 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:12:32 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <cstdlib>
+#include <string>
 
 PhoneBook::PhoneBook(){}
 
@@ -39,24 +40,14 @@ void PhoneBook::add_contact()
 	std::cout << "Enter your data, please" << std::endl;
 	std::cout << "First name: " << std::endl;
 	_contact_list[this->get_index()].setFirstName(input());
-	if (std::cin.eof() == 1)
-		exit(1);
 	std::cout << "Last name: " << std::endl;
 	_contact_list[this->get_index()].setLastName(input());
-	if (std::cin.eof() == 1)
-		exit(1);
 	std::cout << "Nickname: " << std::endl;
 	_contact_list[this->get_index()].set_Nickname(input());
-	if (std::cin.eof() == 1)
-		exit(1);
 	std::cout << "Phone number: " << std::endl;
 	_contact_list[this->get_index()].set_PhoneNumber(input());
-	if (std::cin.eof() == 1)
-		exit(1);
 	std::cout << "Don't worry, but now I need you to tell your darkest secret" << std::endl;
 	_contact_list[this->get_index()].set_DarkestSecret(input());
-	if (std::cin.eof() == 1)
-		exit(1);
 	return;
 }
 
@@ -65,7 +56,7 @@ void PhoneBook::_display_choices(int i)
 	std::string FirstName = _contact_list[i].getFirstName();
 	std::string LastName = _contact_list[i].getLastName();
 	std::string	Nickname = _contact_list[i].getNickname();
-	std::cout << i + 1 << "    |";
+	std::cout << i + 1 << "         |";
 	if (_contact_list[i].getFirstName().size() > 10)
 	{
 		FirstName.resize(9);
@@ -127,7 +118,7 @@ void	PhoneBook::search()
 	std::cout << "*>>>>>>>>>>>>>>>>>\e[34mContact List\e[0m<<<<<<<<<<<<<<<<<<<*" << std::endl;
 	std::cout << "**************************************************" << std::endl;
 	std::cout << "Choose an index:" << std::endl;
-	std::cout << "Index|First Name|Last Name |Nickname  " << std::endl;
+	std::cout << "Index     |First Name|Last Name |Nickname  " << std::endl;
 	while (i <= get_index())
 	{
 		_display_choices(i);

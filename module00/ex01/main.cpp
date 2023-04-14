@@ -6,18 +6,24 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:40:08 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/13 16:54:08 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:14:22 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
+#include <string>
 
 std::string	input()
 {
 	std::string	line;
 	
 	while (line.empty())
+	{
 		std::getline(std::cin >> std::ws, line);
+		if (std::cin.eof() == 1)
+			exit(1);
+	}
 	return (line);
 }
 
