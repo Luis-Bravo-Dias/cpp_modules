@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:48:22 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/21 17:13:00 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/22 15:16:21 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Weapon::Weapon(std::string type)
 
 Weapon::~Weapon(){};
 
-std::string Weapon::getType() const&
+std::string const& Weapon::getType()
 {
 	return(this->_type);
 }
