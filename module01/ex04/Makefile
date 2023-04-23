@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 18:00:10 by lleiria-          #+#    #+#              #
-#    Updated: 2023/04/22 18:01:12 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/04/23 14:44:59 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= SedIsForLosers
+NAME 		= replace
 
 INCLUDE 	= -I ./
 
