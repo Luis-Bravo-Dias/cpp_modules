@@ -1,33 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 10:54:36 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/25 16:40:06 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/04/25 16:34:27 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/04/25 16:34:28 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <iostream>
-#include <string>
-
-class Zombie
-{
-public:
-	Zombie();
-	~Zombie();
-
-	void announce(void);
-	void set_name(std::string name);
-	std::string get_name();
-
-private:
-	std::string _name;
-};
-
-#endif

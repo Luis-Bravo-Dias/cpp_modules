@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 10:54:36 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/25 16:40:06 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/04/25 16:35:21 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/04/25 16:43:22 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 #include <string>
 
-class Zombie
+class Harl
 {
 public:
-	Zombie();
-	~Zombie();
+	Harl();
+	~Harl();
 
-	void announce(void);
-	void set_name(std::string name);
-	std::string get_name();
+	void	complain(std::string level);
 
 private:
-	std::string _name;
+	void	_debug(void);
+	void	_info(void);
+	void	_warning(void);
+	void	_error(void);
 };
 
 #endif
