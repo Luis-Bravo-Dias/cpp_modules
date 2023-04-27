@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 16:33:45 by lleiria-          #+#    #+#              #
-#    Updated: 2023/04/25 16:34:08 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/04/27 14:59:18 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME 		= Harl
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				Harl.cpp \
 				
 OBJS		= $(SRCS:.cpp=.o)
 
