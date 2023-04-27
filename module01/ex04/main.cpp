@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:10:46 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/25 15:36:38 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:00:25 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,18 @@ int	swaping(std::ifstream &infile, std::ofstream &outfile, std::string s1, std::
 	return (0);
 }
 
-void	replace(std::ifstream	&infile, char **av)
+int	replace(std::ifstream	&infile, char **av)
 {
 	std::string	newFileName = av[1];
 	newFileName += ".replace";
 	std::string	s1 = av[2];
 	std::string	s2 = av[3];
+	if (s1 == "")
+	{
+		std::cout << "Please place a string to be replaced" << std::endl;
+		infile.close();
+		return (EXIT_FAILURE);
+	}
 	
 	std::ofstream	outfile;
 	outfile.open(newFileName.c_str());
