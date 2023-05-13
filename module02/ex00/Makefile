@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 17:08:50 by lleiria-          #+#    #+#              #
-#    Updated: 2023/05/10 17:09:17 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/05/13 17:27:13 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= Harl
+NAME 		= fixed
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				Fixed.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
