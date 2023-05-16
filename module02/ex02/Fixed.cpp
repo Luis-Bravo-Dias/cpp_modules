@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 12:10:27 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:09:18 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/16 15:25:54 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/16 17:59:50 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,26 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 	
 	this->_fpNbr = rhs.getRawBits();
 	return (*this);
+}
+
+Fixed	Fixed::operator+(Fixed const & rhs) const
+{
+	return (Fixed(this->_fpNbr + rhs.getRawBits()));
+}
+
+Fixed	Fixed::operator-(Fixed const & rhs) const
+{
+	return (Fixed(this->_fpNbr - rhs.getRawBits()));
+}
+
+Fixed	Fixed::operator*(Fixed const & rhs) const
+{
+	return (Fixed(this->_fpNbr * rhs.getRawBits()));
+}
+
+Fixed	Fixed::operator/(Fixed const & rhs) const
+{
+	return (Fixed(this->_fpNbr / rhs.getRawBits()));
 }
 
 int	Fixed::getRawBits() const

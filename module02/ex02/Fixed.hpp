@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 12:12:05 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/16 12:01:45 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/16 15:25:14 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/16 17:53:26 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ class Fixed
 		~Fixed(void);
 		
 		Fixed & operator=(Fixed const & rhs);
+		Fixed	operator+(Fixed const & rhs) const;
+		Fixed	operator-(Fixed const & rhs) const;
+		Fixed	operator*(Fixed const & rhs) const;
+		Fixed	operator/(Fixed const & rhs) const;
+
+		
 		int	getRawBits(void) const;
 		void setRawBits(int const & raw);
 		float	toFloat(void) const;
