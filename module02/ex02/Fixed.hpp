@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:25:14 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/17 17:40:40 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:46:35 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ public:
 	Fixed &operator--(void);
 	Fixed operator--(int);
 
-	Fixed &min(Fixed &a, Fixed &b);
-	Fixed const &min(Fixed const &a, Fixed const &b);
-	Fixed &max(Fixed &a, Fixed &b);
-	Fixed const &max(Fixed const &a, Fixed const &b);
+	static Fixed &min(Fixed &a, Fixed &b);
+	static Fixed &min(Fixed const &a, Fixed const &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static Fixed &max(Fixed const &a, Fixed const &b);
 
 	int getRawBits(void) const;
 	void setRawBits(int const &raw);
