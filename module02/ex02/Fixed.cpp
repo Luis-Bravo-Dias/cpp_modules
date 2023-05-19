@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:25:54 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/18 17:22:58 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/19 11:59:11 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed(int const & nbr)
 
 Fixed::Fixed(float const & nbr)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	
 	this->_fpNbr = static_cast<int>(roundf(nbr * (1 << this->_bits)));
 }
