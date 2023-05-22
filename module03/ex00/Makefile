@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 17:26:31 by lleiria-          #+#    #+#              #
-#    Updated: 2023/05/19 17:27:15 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/05/22 16:02:30 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME 		= ClapTrap
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				ClapTrap.cpp \
 				
 OBJS		= $(SRCS:.cpp=.o)
 
