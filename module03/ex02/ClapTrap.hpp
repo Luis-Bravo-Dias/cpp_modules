@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 14:46:43 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/24 10:12:51 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/24 10:21:15 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/24 10:22:08 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-int main()
+#include <iostream>
+
+class ClapTrap
 {
-	ScavTrap	st("Mario");
-	ClapTrap	ct("Bowser");
+	private:
+		ClapTrap(void);
 
-	st.attack("Bowser");
-	ct.takeDamage(20);
-	ct.attack("Mario");
-	st.guardGate();
-	st.takeDamage(0);
-	st.beRepaired(5);
-	st.attack("Bowser");
-	ct.takeDamage(20);
+	public:
+		ClapTrap(std::string name);
+		ClapTrap(ClapTrap const &src);
+		~ClapTrap(void);
 
-}
+		void attack(const std::string &target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+	
+	protected:
+		std::string _name;
+		int _HP;
+		int _EP;
+		int _attack;
+};
+
+#endif

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/23 14:35:23 by lleiria-          #+#    #+#              #
-#    Updated: 2023/05/24 10:13:04 by lleiria-         ###   ########.fr        #
+#    Created: 2023/05/24 10:15:23 by lleiria-          #+#    #+#              #
+#    Updated: 2023/05/24 14:32:10 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,14 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= ScavTrap
+NAME 		= FragTrap
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
 				ScavTrap.cpp \
-				ClapTrap.cpp
+				ClapTrap.cpp \
+				FragTrap.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 

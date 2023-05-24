@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 14:46:43 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/24 10:12:51 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/24 11:27:54 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/24 15:58:20 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main()
+# include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ScavTrap	st("Mario");
-	ClapTrap	ct("Bowser");
+	private:
+		FragTrap(void);
+	
+	public:
+		FragTrap(std::string name);
+		FragTrap(FragTrap const &src);
+		~FragTrap(void);
 
-	st.attack("Bowser");
-	ct.takeDamage(20);
-	ct.attack("Mario");
-	st.guardGate();
-	st.takeDamage(0);
-	st.beRepaired(5);
-	st.attack("Bowser");
-	ct.takeDamage(20);
+		// void attack(const std::string &target);
+		void highFivesGuys(void);
+};
 
-}
+#endif
