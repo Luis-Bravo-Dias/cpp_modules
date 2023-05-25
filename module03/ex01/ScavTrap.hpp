@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:47:40 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/23 17:24:51 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:04:36 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class ScavTrap : public ClapTrap
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const &src);
 		~ScavTrap(void);
+
+		ScavTrap &operator=(ScavTrap const &rhs);
 		
 		void attack(const std::string &target);
 		void guardGate(void);

@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 10:21:15 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/25 13:06:20 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/25 13:22:49 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/25 17:06:52 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
-class ClapTrap
+class Animal
 {
-	private:
-		ClapTrap(void);
-
 	public:
-		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const &src);
-		~ClapTrap(void);
+	Animal(void);
+	Animal(Animal const &src);
+	~Animal(void);
 
-		ClapTrap &operator=(ClapTrap const &rhs);
+	Animal &operator=(Animal const &rhs);
 
-		void attack(const std::string &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-	
+	virtual void makeSound(void);
+
 	protected:
-		std::string _name;
-		int _HP;
-		int _EP;
-		int _attack;
+		std::string	type;
 };
 
 #endif

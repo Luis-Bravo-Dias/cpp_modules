@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:15:03 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/25 13:07:03 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/25 15:14:24 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/25 16:54:06 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-# include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
-	private:
-		ScavTrap(void);
-	
 	public:
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const &src);
-		~ScavTrap(void);
-
-		ScavTrap &operator=(ScavTrap const &rhs);
+		Dog(void);
+		Dog(Dog	const &src);
+		~Dog(void);
 		
-		void attack(const std::string &target);
-		void guardGate(void);
+		Dog &operator=(Dog const &rhs);
+
+		void makeSound(void);
 };
 
 #endif

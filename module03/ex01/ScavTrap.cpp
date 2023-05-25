@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:55:05 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/23 17:29:31 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:05:29 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ ScavTrap::ScavTrap(ScavTrap const &src): ClapTrap(src)
 {
 	std::cout << "Copy ScavTrap constructor called" << std::endl;
 	*this = src;
+}
+
+ScavTrap &	ScavTrap::operator=(ScavTrap const& rhs)
+{
+
+	if (this != &rhs)
+	{
+		this->_attack = rhs._attack;
+		this->_EP = rhs._EP;
+		this->_HP = rhs._HP;
+	}	
+	return (*this);
 }
 
 void ScavTrap::attack(const std::string &target)

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/24 10:15:23 by lleiria-          #+#    #+#              #
-#    Updated: 2023/05/25 13:24:29 by lleiria-         ###   ########.fr        #
+#    Created: 2023/05/25 12:54:21 by lleiria-          #+#    #+#              #
+#    Updated: 2023/05/25 13:24:42 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= FragTrap
+NAME 		= Poly
 
 INCLUDE 	= -I ./
 

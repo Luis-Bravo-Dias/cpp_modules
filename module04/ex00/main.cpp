@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:15:03 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/25 13:07:03 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/05/25 13:22:44 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/05/25 17:02:17 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "Dog.hpp"
 
-# include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int main()
 {
-	private:
-		ScavTrap(void);
-	
-	public:
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const &src);
-		~ScavTrap(void);
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
 
-		ScavTrap &operator=(ScavTrap const &rhs);
-		
-		void attack(const std::string &target);
-		void guardGate(void);
-};
-
-#endif
+	return 0;
+}

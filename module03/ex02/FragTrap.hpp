@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:27:54 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:58:20 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:08:27 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		FragTrap(FragTrap const &src);
 		~FragTrap(void);
+
+		FragTrap &operator=(FragTrap const &rhs);
 
 		// void attack(const std::string &target);
 		void highFivesGuys(void);

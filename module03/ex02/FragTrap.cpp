@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:49:15 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:58:05 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:09:08 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ FragTrap::FragTrap(FragTrap const &src): ClapTrap(src)
 {
 	std::cout << "Copy FragTrap constructor was summoned" << std::endl;
 	*this = src;
+}
+
+FragTrap &	FragTrap::operator=(FragTrap const& rhs)
+{
+
+	if (this != &rhs)
+	{
+		this->_attack = rhs._attack;
+		this->_EP = rhs._EP;
+		this->_HP = rhs._HP;
+	}	
+	return (*this);
 }
 
 // void FragTrap::attack(const std::string &target)

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:28:30 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/23 16:31:08 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:01:33 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
+}
+
+ClapTrap &	ClapTrap::operator=(ClapTrap const& rhs)
+{
+
+	if (this != &rhs)
+	{
+		this->_attack = rhs._attack;
+		this->_EP = rhs._EP;
+		this->_HP = rhs._HP;
+	}	
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string &target)
