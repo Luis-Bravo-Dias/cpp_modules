@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:22:49 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/25 17:06:52 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:37:14 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Animal
 
 	Animal &operator=(Animal const &rhs);
 
-	virtual void makeSound(void);
+	virtual void makeSound(void) const;
+	virtual std::string	getType(void) const;
 
 	protected:
 		std::string	type;

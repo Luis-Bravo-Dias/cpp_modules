@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:07:11 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/25 17:14:12 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:40:26 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ Dog & Dog::operator=(Dog const &rhs)
 	return (*this);
 }
 
-void	Dog::makeSound(void)
+void	Dog::makeSound(void) const
 {
 	std::cout << this->type << ": Woof! Woof!" << std::endl;
+}
+
+std::string	Dog::getType(void) const
+{
+	return (this->type);
 }
