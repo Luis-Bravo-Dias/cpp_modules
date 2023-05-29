@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 17:06:58 by lleiria-          #+#    #+#              #
-#    Updated: 2023/05/26 17:07:12 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/05/29 16:23:09 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,9 @@ SRCS 		= 	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
 				Cat.cpp \
-				WrongCat.cpp \
-				WrongAnimal.cpp
+				Brain.cpp \
+				#WrongCat.cpp \
+				#WrongAnimal.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
