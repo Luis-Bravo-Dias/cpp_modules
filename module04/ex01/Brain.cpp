@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:52:45 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/29 17:41:08 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:46:59 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Brain::~Brain()
 
 Brain & Brain::operator=(Brain const &rhs)
 {
+	std::cout << "Brain assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		int i = 0;
@@ -40,4 +41,26 @@ Brain & Brain::operator=(Brain const &rhs)
 		}
 	}
 	return (*this);
+}
+
+void	Brain::think(std::string idea, int i)
+{
+	if (i < 100 && i > -1)
+		this->ideas[i] = idea;
+	else
+		std::cout << "No room for that idea, choose an index of 0 to 99." << std::endl;
+}
+
+std::string	Brain::mindRead(int i)
+{
+	if (i < 100 && i > -1)
+	{
+		if (this->ideas[i].empty())
+			return ("Brain cell empty, no ideas...");
+		else
+			return (this->ideas[i]);
+	}
+	else
+		return ("No room for that idea, choose an index of 0 to 99.");
+	
 }

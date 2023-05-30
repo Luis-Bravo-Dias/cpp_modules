@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:51:37 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/29 16:51:39 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:47:33 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ int	main(void)
 	for (size_t i = 0; i < 10; i++)
 		delete farm[i];
 	
+	
+	Dog	*Max = new Dog();
+
+	Max->setIdea("bife", 0);
+
+	std::cout << Max->getType() << " 1: " << Max->getIdea(0) << std::endl;
+
+	Dog *Mel = new Dog();
+	
+	*Mel = *Max;
+
+	delete Max;
+
+	std::cout << Mel->getType() << " 2: " << Mel->getIdea(0) << std::endl;
+
+	delete Mel;
+		
 	//************** SUBJECT TESTS *********************
 
 	const Animal* j = new Dog();

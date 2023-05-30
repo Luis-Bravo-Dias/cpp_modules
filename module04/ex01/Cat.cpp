@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:45:38 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/29 17:02:02 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:48:27 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Cat & Cat::operator=(Cat const &rhs)
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		this->_brain = rhs._brain;
+		(*this->_brain) = (*rhs._brain);
 	}
 	return (*this);
 }
@@ -50,4 +50,14 @@ void	Cat::makeSound(void) const
 std::string	Cat::getType(void) const
 {
 	return (this->type);
+}
+
+std::string	Cat::getIdea(int i)
+{
+	return(this->_brain->mindRead(i));
+}
+
+void	Cat::setIdea(std::string idea, int i)
+{
+	this->_brain->think(idea, i);
 }
