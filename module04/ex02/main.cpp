@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 15:51:37 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/05 17:25:45 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/06/05 17:24:37 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/06/05 17:30:19 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int	main(void)
 {
-	Animal* farm[10];
+	
+	AAnimal* farm[10];
 
 	for (size_t i = 0; i < 10; i++)
 	{
@@ -49,20 +50,10 @@ int	main(void)
 		
 	//************** SUBJECT TESTS *********************
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	
 	delete j;
 	delete i;
 	return 0;
 }
-
-// int main()
-// {
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-// 	delete j;//should not create a leak
-// 	delete i;
-	
-// 	return 0;
-// }
