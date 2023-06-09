@@ -6,25 +6,28 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:24:59 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/08 15:58:36 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:36:16 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-# include <iostream>
-# include "Materia.hpp"
+# include "ICharacter.hpp"
 
-class ICharacter
+class Character : public ICharacter
 {
 	public:
-		ICharacter();
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Character(std::string name);
+		Character(Character const &src);
+		virtual ~Character();
+
+		Character &operator=(Character const &rhs);
+		
+		virtual std::string const & getName() const;
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, Character& target);
 		
 	private:
 		int	_slots;

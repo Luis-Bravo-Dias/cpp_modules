@@ -6,11 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:46:31 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/08 12:07:12 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:29:24 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Materia.hpp"
+
+AMateria::AMateria(){};
 
 AMateria::AMateria(std::string const & type): _type(type)
 {
@@ -38,14 +40,4 @@ AMateria & AMateria::operator=(AMateria const &rhs)
 std::string const & AMateria::getType() const
 {
 	return(this->_type);
-}
-
-AMateria* AMateria::clone() const
-{
-	AMateria *clone = new AMateria("clone");
-}
-
-void	AMateria::use(ICharacter& target)
-{
-	
 }

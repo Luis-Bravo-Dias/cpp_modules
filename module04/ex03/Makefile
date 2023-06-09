@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 11:49:35 by lleiria-          #+#    #+#              #
-#    Updated: 2023/06/07 11:49:48 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/06/09 17:24:03 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,14 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= Poly
+NAME 		= Interface
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				Ice.cpp \
+				Character.cpp \
+				Materia.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
