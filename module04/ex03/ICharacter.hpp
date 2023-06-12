@@ -6,14 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:29:40 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/09 17:36:19 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:04:32 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-# include <iostream>
 # include "Materia.hpp"
 
 class ICharacter

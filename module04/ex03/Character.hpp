@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:24:59 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/09 17:36:16 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:55:12 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Character : public ICharacter
 		virtual void use(int idx, Character& target);
 		
 	private:
+		Character(void);
 		int	_slots;
 		std::string _name;
 		AMateria *_inventory[4];

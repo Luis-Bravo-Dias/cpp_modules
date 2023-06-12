@@ -6,20 +6,26 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:44:22 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/09 17:00:56 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:21:08 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
+Character::Character(){}
+
 Character::Character(std::string name): _slots(0), _name(name)
 {
 	std::cout << "Default Character constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character::Character(Character const &src)
 {
-	std::cout << "Copy Ice constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
+	std::cout << "Copy Character constructor called" << std::endl;
 	*this = src;
 }
 
