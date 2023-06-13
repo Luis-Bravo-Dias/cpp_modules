@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:31:12 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/09 18:27:36 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/13 12:01:40 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Ice : public AMateria
 		Ice &operator=(Ice const &rhs);
 
 		virtual void use(ICharacter &target);
-		virtual Ice *clone() const;
+		virtual AMateria *clone() const;
 };
 
 #endif
