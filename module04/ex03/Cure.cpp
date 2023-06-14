@@ -6,20 +6,21 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:56:05 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/13 12:45:26 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:07:34 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 Cure::Cure(): AMateria("cure")
 {
-	std::cout << "Default Cure constructor called" << std::endl;
+	// std::cout << "Default Cure constructor called" << std::endl;
 }
 
 Cure::Cure(Cure const &src): AMateria("cure")
 {
-	std::cout << "Copy Cure constructor called" << std::endl;
+	// std::cout << "Copy Cure constructor called" << std::endl;
 	*this = src;
 }
 

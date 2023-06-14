@@ -6,20 +6,21 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:55:54 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/13 12:13:52 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:07:49 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(): AMateria("ice")
 {
-	std::cout << "Default Ice constructor called" << std::endl;
+	// std::cout << "Default Ice constructor called" << std::endl;
 }
 
 Ice::Ice(Ice const &src): AMateria("ice")
 {
-	std::cout << "Copy Ice constructor called" << std::endl;
+	// std::cout << "Copy Ice constructor called" << std::endl;
 	*this = src;
 }
 

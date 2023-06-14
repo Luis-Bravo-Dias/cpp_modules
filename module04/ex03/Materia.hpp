@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 12:36:27 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/12 16:08:19 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:47:24 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define MATERIA_HPP
 
 # include <iostream>
-# include "Character.hpp"
+
+class ICharacter;
 
 class AMateria
 {

@@ -6,17 +6,18 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:44:22 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/06/13 16:47:13 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:16:16 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "Materia.hpp"
 
 Character::Character(){}
 
-Character::Character(std::string name): _slots(0), _name(name)
+Character::Character(std::string name): _name(name)
 {
-	std::cout << "Default Character constructor called" << std::endl;
+	// std::cout << "Default Character constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
@@ -25,7 +26,7 @@ Character::Character(Character const &src)
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	std::cout << "Copy Character constructor called" << std::endl;
+	// std::cout << "Copy Character constructor called" << std::endl;
 	*this = src;
 }
 
@@ -64,7 +65,7 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	if (m = 0)
+	if (m == 0)
 	{
 		std::cout << "That materia doesn't exist" << std::endl;
 		return ;
@@ -88,7 +89,7 @@ void Character::unequip(int idx)
 	if (idx > -1 && idx < 4 && this->_inventory[idx] != NULL)
 		this->_inventory[idx] = NULL;
 	else if (idx < 0 || idx > 3)
-		std::cout << "That is not a slot from the inventory, plese chose a number form 0 to 3." << std::endl;
+		std::cout << "That is not a slot from the inventory, please choose a number form 0 to 3." << std::endl;
 	else
 		std::cout << "That slot is empty, there's nothing to unequip." << std::endl;
 }
@@ -98,6 +99,6 @@ void	Character::use(int idx, ICharacter& target)
 	if (idx > -1 && idx < 4 && this->_inventory[idx] != NULL)
 		this->_inventory[idx]->use(target);
 	else
-		std::cout << "That is not a slot from the inventory, plese chose a number form 0 to 3." << std::endl;
+		std::cout << "That is not a slot from the inventory, please choose a number form 0 to 3." << std::endl;
 
 }
