@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:22:49 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:37:14 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:56:28 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal
 	public:
 	Animal(void);
 	Animal(Animal const &src);
-	~Animal(void);
+	virtual ~Animal(void);
 
 	Animal &operator=(Animal const &rhs);
 
