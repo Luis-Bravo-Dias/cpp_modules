@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 12:28:14 by lleiria-          #+#    #+#              #
-#    Updated: 2023/07/20 12:30:06 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/07/25 17:47:52 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= Interface
+NAME 		= bureaucrat
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				Bureaucrat.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
