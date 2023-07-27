@@ -6,14 +6,14 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:09:49 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/26 12:09:52 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:20:43 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-# include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -29,6 +29,7 @@ class Bureaucrat
 
 		void gradeUp(int up);
 		void gradeDown (int down);
+		void signForm (Form const &f);
 
 		class GradeTooHighException :public std::exception
 		{

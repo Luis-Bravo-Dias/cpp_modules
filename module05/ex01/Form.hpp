@@ -6,13 +6,14 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:24:20 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/26 17:36:09 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:19:53 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
+# include <iostream>
 # include "Bureaucrat.hpp"
 
 class Form
@@ -24,8 +25,12 @@ class Form
 
 		Form &operator=(Form const &rhs);
 
-		std::string getGradeName(void) const;
+		std::string getFormName(void) const;
+		bool getSignature(void) const;
+		int	getGradeSign(void) const;
+		int	getGradeExec(void) const;
 		
+		void beSigned(Bureaucrat const &bc);
 
 		class GradeTooHighException :public std::exception
 		{
