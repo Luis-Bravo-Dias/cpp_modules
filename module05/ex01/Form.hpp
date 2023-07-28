@@ -6,14 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:24:20 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/27 12:19:53 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/07/28 10:58:30 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-# include <iostream>
 # include "Bureaucrat.hpp"
 
 class Form

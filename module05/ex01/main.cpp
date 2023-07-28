@@ -6,23 +6,32 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:09:22 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/26 12:09:28 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:21:35 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void) 
 {
+	std::cout << std::endl << "------------------------BUREAUCRAT TESTS------------------------" << std::endl;
 
-	Bureaucrat Bob("Bob", 50);
-	std::cout << Bob << " is born" << std::endl;
+	try
+	{
+		Bureaucrat Bob("Bob", 60);
+		std::cout << Bob << " is born" << std::endl;
 	
-	Bureaucrat Ema("Ema", 101);
-	std::cout << Ema << " is born" << std::endl;
+		Bureaucrat Ema("Ema", 101);
+		std::cout << Ema << " is born" << std::endl;
 
-	Ema = Bob;
-	std::cout << Ema << std::endl;
+		Ema = Bob;
+		std::cout << Ema << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	
 	try
 	{
@@ -33,11 +42,7 @@ int	main(void)
 		phil.gradeDown(1);
 		std::cout << phil << " was demoted" << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -48,11 +53,7 @@ int	main(void)
 		Bureaucrat john("John", 200);
 		std::cout << john << " is born, the poor defective bastard" << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -67,14 +68,44 @@ int	main(void)
 		phil.gradeDown(1);
 		std::cout << phil << " was demoted" << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+
+	std::cout << std::endl << "------------------------FORM TESTS------------------------" << std::endl;
+		
+	try
+	{
+		Bureaucrat emilia ("Emilia", 42);
+		std::cout << emilia << " is born" << std::endl;
+		// Bureaucrat emerson("Emerson", 160);
+		// std::cout << emerson << " is born" << std::endl;
+		Form b50 ("B50", 30, 50);
+		std::cout << b50 << std::endl;
+		emilia.signForm(b50);
+
+		
+		Form b16("B16", 160, 0);
+		std::cout << b16 << std::endl;
+	}
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	// catch(const Bureaucrat::GradeTooLowException& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	// catch(const Form::GradeTooHighException& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	// catch(const Form::GradeTooLowException& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	
 	
 	return 0;
 }

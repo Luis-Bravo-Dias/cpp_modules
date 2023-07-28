@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/26 12:09:02 by lleiria-          #+#    #+#              #
-#    Updated: 2023/07/26 12:09:09 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/07/28 10:42:25 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ NAME 		= bureaucrat
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
-				Bureaucrat.cpp
+				Bureaucrat.cpp \
+				Form.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
