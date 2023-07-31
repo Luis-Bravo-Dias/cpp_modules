@@ -1,0 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/31 10:54:17 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/07/31 14:40:15 by lleiria-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AFORM_HPP
+#define AFORM_HPP
+
+# include "Bureaucrat.hpp"
+
+class AForm
+{
+	public:
+		AForm(std::string name, int gradeSign, int gradeExec);
+		AForm(AForm const &src);
+		virtual ~AForm(void);
+
+		AForm &operator=(AForm const &rhs);
+
+		virtual std::string getFormName(void) const;
+		virtual bool getSignature(void) const;
+		virtual int	getGradeSign(void) const;
+		virtual int	getGradeExec(void) const;
+		
+		virtual void beSigned(Bureaucrat const &bc);
+		virtual void execute(Bureaucrat const & executor) = 0;
+
+		class GradeTooHighException :public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too high");
+				}
+		};
+
+		class GradeTooLowException :public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too low");
+				}
+		};
+
+		class FormNotSignedException :public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("This Form is not signed");
+				}
+		};
+	
+	private:
+		AForm(void);
+		std::string const _name;
+		bool _signed;
+		int	const _gradeSign;
+		int	const _gradeExec;
+		
+};
+
+std::ostream & operator<<(std::ostream & o, AForm const & rhs);
+
+#endif
