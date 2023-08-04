@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:54:33 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 10:54:41 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:54:14 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,7 +31,7 @@ class Bureaucrat
 
 		void gradeUp(int up);
 		void gradeDown (int down);
-		void signForm (Form &f);
+		void signForm (AForm &f);
 
 		class GradeTooHighException :public std::exception
 		{

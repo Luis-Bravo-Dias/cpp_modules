@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 10:53:42 by lleiria-          #+#    #+#              #
-#    Updated: 2023/07/31 10:56:29 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/08/04 15:51:02 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
 				Bureaucrat.cpp \
-				Form.cpp
+				AForm.cpp \
+				ShrubberyCreationForm.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 

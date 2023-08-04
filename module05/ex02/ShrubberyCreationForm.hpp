@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:57:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/01 16:19:22 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:54:21 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
+# include <string>
 
 class ShrubberyCreationForm : public AForm
 {

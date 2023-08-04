@@ -6,14 +6,15 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:58:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/01 16:56:43 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:15:21 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): _target(target), AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery", 145, 137)
 {
+	this->_target = target;
 	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
 }
 
@@ -37,5 +38,28 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executer)
 {
+	if (executer.getGrade() <= 37)
+	{
+		std::string fileName;
 	
+		fileName = this->_target;
+	
+		fileName.append("_shrubbery");
+		std::ofstream file(fileName);
+		
+ 		file << "              ,@@@@@@@,                 " << std::endl
+		<< "      ,,,.   ,@@@@@@/@@,  .oo8888o.     " << std::endl
+		<< "   ,&%/%&%&&%,@@@@@/@@@@@@,8888\\88/8o    " << std::endl
+		<< "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'   " << std::endl
+		<< "  %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'   " << std::endl
+		<< "  %&&%/ %&%/%&&@@\\ V /@@' `88\\8 `/88'    " << std::endl
+		<< "  `&%\\ ` /%&'    |.|        \\ '|8'      " << std::endl
+		<< "      |o|        | |         | |        " << std::endl
+		<< "      |.|        | |         | |        " << std::endl
+		<< "   \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
+		
+		file.close();
+	}
+	else
+		throw ShrubberyCreationForm::ExecGradeException();
 }

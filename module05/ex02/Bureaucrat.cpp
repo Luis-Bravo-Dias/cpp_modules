@@ -6,13 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:00 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 10:55:03 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:53:32 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
@@ -67,7 +67,7 @@ void Bureaucrat::gradeDown(int down)
 	this->_grade += down;
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(AForm &f)
 {
 	try
 	{

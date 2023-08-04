@@ -6,12 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:54:04 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 10:54:08 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:52:13 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(void) 
 {
@@ -73,33 +74,46 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "------------------------FORM TESTS------------------------" << std::endl;
+	// std::cout << std::endl << "------------------------AFORM TESTS------------------------" << std::endl;
 		
+	// try
+	// {
+	// 	Bureaucrat emilia ("Emilia", 42);
+	// 	std::cout << emilia << " is born" << std::endl;
+	// 	// Bureaucrat emerson("Emerson", 160);
+	// 	// std::cout << emerson << " is born" << std::endl;
+	// 	AForm b50 ("B50", 50, 50);
+	// 	std::cout << b50 << std::endl;
+	// 	emilia.signAForm(b50);
+	// 	std::cout << b50 << std::endl;
+
+	// 	Bureaucrat bob("Bob", 23);
+	// 	std::cout << bob << " is born" << std::endl;
+	// 	AForm c42("C42", 42, 42);
+	// 	std::cout << c42 << std::endl;
+	// 	c42.beSigned(bob);
+	// 	std::cout << c42 << std::endl;
+
+		
+	// 	AForm b16("B16", 160, 0);
+	// 	std::cout << b16 << std::endl;
+	// }
+	// catch(std::exception& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+
+	std::cout << std::endl << "------------------------Shrubbery TESTS------------------------" << std::endl;
 	try
 	{
-		Bureaucrat emilia ("Emilia", 42);
-		std::cout << emilia << " is born" << std::endl;
-		// Bureaucrat emerson("Emerson", 160);
-		// std::cout << emerson << " is born" << std::endl;
-		Form b50 ("B50", 50, 50);
-		std::cout << b50 << std::endl;
-		emilia.signForm(b50);
-		std::cout << b50 << std::endl;
-
-		Bureaucrat bob("Bob", 23);
-		std::cout << bob << " is born" << std::endl;
-		Form c42("C42", 42, 42);
-		std::cout << c42 << std::endl;
-		c42.beSigned(bob);
-		std::cout << c42 << std::endl;
-
-		
-		Form b16("B16", 160, 0);
-		std::cout << b16 << std::endl;
+		Bureaucrat lara("Lara", 1);
+		ShrubberyCreationForm	shrubbery("file");
+		shrubbery.execute(lara);
 	}
-	catch(std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	
 	return 0;
 }
