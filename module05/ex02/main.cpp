@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:54:04 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/04 15:52:13 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/05 16:39:02 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	main(void)
 	std::cout << std::endl << "------------------------Shrubbery TESTS------------------------" << std::endl;
 	try
 	{
-		Bureaucrat lara("Lara", 1);
+		Bureaucrat lara("Lara", 140);
 		ShrubberyCreationForm	shrubbery("file");
 		shrubbery.execute(lara);
 	}

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:58:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/04 16:15:21 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/05 16:16:38 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executer)
 		fileName = this->_target;
 	
 		fileName.append("_shrubbery");
-		std::ofstream file(fileName);
-		
- 		file << "              ,@@@@@@@,                 " << std::endl
+		std::ofstream file;
+		file.open(fileName.c_str());
+		if (file.is_open())
+	{
+		file << "              ,@@@@@@@,                 " << std::endl
 		<< "      ,,,.   ,@@@@@@/@@,  .oo8888o.     " << std::endl
 		<< "   ,&%/%&%&&%,@@@@@/@@@@@@,8888\\88/8o    " << std::endl
 		<< "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'   " << std::endl
@@ -57,7 +59,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executer)
 		<< "      |o|        | |         | |        " << std::endl
 		<< "      |.|        | |         | |        " << std::endl
 		<< "   \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
-		
+	}
 		file.close();
 	}
 	else
