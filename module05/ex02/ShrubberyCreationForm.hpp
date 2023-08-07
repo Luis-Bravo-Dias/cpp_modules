@@ -26,7 +26,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
 
-		virtual void execute(Bureaucrat const & executer);
+		virtual void execute(Bureaucrat const & executer) const;
 
 		class ExecGradeException :public std::exception
 		{
@@ -34,6 +34,15 @@ class ShrubberyCreationForm : public AForm
 				virtual const char* what() const throw()
 				{
 					return ("Invalid grade to execute");
+				}
+		};
+
+		class NotSignedException :public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("This form is not signed");
 				}
 		};
 	

@@ -106,9 +106,10 @@ int	main(void)
 	std::cout << std::endl << "------------------------Shrubbery TESTS------------------------" << std::endl;
 	try
 	{
-		Bureaucrat lara("Lara", 140);
+		Bureaucrat lara("Lara", 149);
 		ShrubberyCreationForm	shrubbery("file");
-		shrubbery.execute(lara);
+		lara.signForm(shrubbery);
+		lara.executeForm(shrubbery);
 	}
 	catch(const std::exception& e)
 	{
