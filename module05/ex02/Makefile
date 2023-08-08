@@ -23,7 +23,9 @@ INCLUDE 	= -I ./
 SRCS 		= 	main.cpp \
 				Bureaucrat.cpp \
 				AForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 

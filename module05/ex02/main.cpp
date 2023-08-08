@@ -13,9 +13,12 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int	main(void) 
+int	main(void)
 {
+	srand(time(NULL));
 	std::cout << std::endl << "------------------------BUREAUCRAT TESTS------------------------" << std::endl;
 
 	try
@@ -106,15 +109,55 @@ int	main(void)
 	std::cout << std::endl << "------------------------Shrubbery TESTS------------------------" << std::endl;
 	try
 	{
-		Bureaucrat lara("Lara", 149);
+		Bureaucrat lara("Lara", 1);
 		ShrubberyCreationForm	shrubbery("file");
 		lara.signForm(shrubbery);
 		lara.executeForm(shrubbery);
+
+		Bureaucrat michael("Michael", 140);
+		ShrubberyCreationForm	shrubbery2("file2");
+		michael.signForm(shrubbery2);
+		michael.executeForm(shrubbery2);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+
+	std::cout << std::endl << "------------------------Robot TESTS------------------------" << std::endl;
+	try
+	{
+		Bureaucrat drake("Drake", 1);
+		RobotomyRequestForm robot("Josh");
+		drake.signForm(robot);
+		drake.executeForm(robot);
+
+		Bureaucrat ed("Ed", 75);
+		RobotomyRequestForm robot2("Al");
+		ed.signForm(robot2);
+		ed.executeForm(robot2);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "------------------------President TESTS------------------------" << std::endl;
+	try
+	{
+		Bureaucrat ford("Ford", 1);
+		PresidentialPardonForm pardon("Arthur");
+		ford.signForm(pardon);
+		ford.executeForm(pardon);
+
+		Bureaucrat candace("Candace", 75);
+		PresidentialPardonForm pardon2("Phineas");
+		candace.signForm(pardon2);
+		candace.executeForm(pardon2);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }

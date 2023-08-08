@@ -12,7 +12,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery Creation", 145, 137)
 {
 	this->_target = target;
 	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
