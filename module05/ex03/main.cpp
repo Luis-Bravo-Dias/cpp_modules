@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:33:44 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 17:58:02 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:43:00 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,21 +158,53 @@ int	main(void)
 	}
 
 	std::cout << std::endl << "------------------------Intern TESTS------------------------" << std::endl;
+	AForm* rrf;
+	AForm* randomForm;
+	AForm* thatForm;
+	AForm* papers;
+	Intern someRandomIntern;
+	Intern carl;
+	Intern thatDude;
+	Intern cofee;
 	try
 	{
-		Intern someRandomIntern;
-		Intern carl;
-		AForm* rrf;
-		AForm* randomForm;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		Bureaucrat fry("Fry", 1);
 		fry.signForm(*rrf);
 		fry.executeForm(*rrf);
+		std::cout << std::endl;
+		thatForm = thatDude.makeForm("shrubbery creation", "that_file");
+		Bureaucrat bigFish ("Big Fish", 4);
+		bigFish.signForm(*thatForm);
+		bigFish.executeForm(*thatForm);
+		std::cout << std::endl;
+		papers = cofee.makeForm("presidential pardon", "Jacob");
+		Bureaucrat caleb("Caleb", 5);
+		caleb.signForm(*papers);
+		caleb.executeForm(*papers);
+		std::cout << std::endl;
 		randomForm = carl.makeForm("get rase", "Carl");
+
+		if (rrf != NULL)
+			delete rrf;
+		else if (randomForm != NULL)
+			delete randomForm;
+		else if (thatForm != NULL)
+			delete thatForm;
+		else if (papers != NULL)
+			delete papers;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		if (rrf != NULL)
+			delete rrf;
+		else if (randomForm != NULL)
+			delete randomForm;
+		else if (thatForm != NULL)
+			delete thatForm;
+		else if (papers != NULL)
+			delete papers;
 	}
 	return 0;
 }
