@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 16:28:24 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/15 14:31:13 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/08/15 14:32:20 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/08/15 15:03:20 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#include "ScalarConverter.hpp"
 
-# include <iostream>
-# include <string>
-
-class SclarConverter
+int main(void)
 {
-	public:
-		SclarConverter(void);
-		SclarConverter(SclarConverter const &src);
-		~SclarConverter(void);
+	SclarConverter con;
 
-		SclarConverter &operator=(SclarConverter const &rhs);
-		
-		static void convert(std::string const& value);
-};
-
-#endif
+	con.convert("42");
+	con.convert("2");
+	con.convert("4.2f");
+	return (0);
+}
