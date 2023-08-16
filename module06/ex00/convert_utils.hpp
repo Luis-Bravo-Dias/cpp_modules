@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   convert_utils.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 14:32:20 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/16 16:42:33 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/08/16 15:13:21 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/08/16 15:46:05 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef CONVERT_UTILS_HPP
+#define CONVERT_UTILS_HPP
 
-int main(void)
-{
-	SclarConverter con;
+# include <iostream>
+# include <string>
+# include <limits>
+#include <cstdlib>
 
-	con.convert("42");
-	con.convert("2");
-	con.convert("4.2f");
-	con.convert("c");
-	con.convert("teste");
-	con.convert("2147483649"); //more than man int
-	con.convert("-2147483649"); //less than min int
-	con.convert("nan");
-	return (0);
-}
+void	goChar(int val_int);
+void	goInt(std::string value, int val_int);
+void	goFloat(std::string value, float val_float, double val_double);
+void	goDouble(std::string value, double val_double);
+
+#endif
