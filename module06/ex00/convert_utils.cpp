@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:10:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/16 16:41:50 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:32:52 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ void	goFloat(std::string value, float val_float, double val_double)
 		std::cout << "float: conversion is impossible: value too big" << std::endl;
 	else if (val_double < std::numeric_limits<float>::min())
 		std::cout << "float: conversion is impossible: value too small" << std::endl;
-
-	
-	if (value.find(".") != value.npos)
+	else if (value.find(".") != value.npos)
 		std::cout << "float: " << val_float << "f" << std::endl;
 	else
 		std::cout << "float: " << val_float << ".0f" << std::endl;
