@@ -6,15 +6,15 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:10:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/21 17:32:52 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:12:02 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert_utils.hpp"
 
-void	goChar(int val_int)
+void	goChar(int val_int, bool isFLoat, bool isDouble)
 {
-	if (val_int >= 32 && val_int <= 126)
+	if ((val_int >= 32 && val_int <= 126) && isFLoat == false && isDouble == false)
 	{
 		char val_char = static_cast<char>(val_int);
 		std::cout << "char: " << val_char << std::endl;

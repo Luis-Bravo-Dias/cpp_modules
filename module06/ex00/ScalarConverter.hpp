@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:28:24 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/21 13:37:54 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:42:27 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ class SclarConverter
 		SclarConverter &operator=(SclarConverter const &rhs);
 		
 		static void convert(std::string const& value);
+	
+	private:
+		
 };
 
 #endif

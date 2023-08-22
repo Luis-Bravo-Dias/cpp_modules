@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 12:03:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/21 17:32:05 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:11:43 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ void	SclarConverter::convert(std::string const& value)
 	int	val_int;
 	float val_float;
 	double val_double;
+	bool	isChar = false;
+	bool	isFLoat = false;
+	bool	isDouble = false;
 	if (value.length() == 1 && value.find_first_not_of("0123456789") != value.npos)
 	{
+		isChar = true;
 		val_int = static_cast<int>(value[0]);
 		val_float = static_cast<float>(value[0]);
 		val_double = static_cast<double>(value[0]);
@@ -59,12 +63,26 @@ void	SclarConverter::convert(std::string const& value)
 		val_double = static_cast<double>(val_float);
 	}
 	
+	if (value.find_first_of("f", 1) == value.length() -1 && value.find(".", 1) != value.npos &&
+		value.find(".", 1) == value.rfind("."))
+		isFLoat = true;
+	else if ((value.find(".", 1) != value.npos && value.find(".", 1) == value.rfind(".")) &&
+		value.find_first_not_of("0123456789.") == value.npos)
+		isDouble = true;
+	
 	if (value.find_first_not_of("0123456789.f", 1) == value.npos)
 	{	
-		goChar(val_int);
-		goInt(value, val_int);
-		goFloat(value, val_float, val_double);
-		goDouble(value, val_double);
+		if ((isChar == false && value.find_first_not_of("0123456789.f") != value.npos) ||
+			(value.find_first_not_of("f") == value.npos && isFLoat == false) ||
+				(value.find(".", 1) != value.npos && isDouble == false && isFLoat == false))
+			std::cout << "Error: wrong type of argument, please enter a int, a char, a float or a double" << std::endl;
+		else
+		{
+			goChar(val_int, isFLoat, isDouble);
+			goInt(value, val_int);
+			goFloat(value, val_float, val_double);
+			goDouble(value, val_double);
+		}
 	}
 	else
 	{
