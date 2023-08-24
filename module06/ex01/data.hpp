@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 16:28:24 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/22 16:16:01 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/08/24 11:51:55 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/08/24 16:35:21 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-# include "convert_utils.hpp"
+# include <iostream>
+# include <stdint.h>
 
-class SclarConverter
+struct Data
 {
-	public:
-		SclarConverter(void);
-		SclarConverter(SclarConverter const &src);
-		~SclarConverter(void);
-
-		SclarConverter &operator=(SclarConverter const &rhs);
-		
-		static void convert(std::string const& value);
+	int data_int;
+	char data_char;
+	std::string data_str;
 };
+
 
 #endif

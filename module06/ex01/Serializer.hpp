@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 16:28:24 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/22 16:16:01 by lleiria-         ###   ########.fr       */
+/*   Created: 2023/08/24 11:17:26 by lleiria-          #+#    #+#             */
+/*   Updated: 2023/08/24 12:27:54 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
-# include "convert_utils.hpp"
+# include "data.hpp"
 
-class SclarConverter
+class Serializer
 {
 	public:
-		SclarConverter(void);
-		SclarConverter(SclarConverter const &src);
-		~SclarConverter(void);
+		Serializer(void);
+		Serializer(Serializer const &src);
+		~Serializer(void);
 
-		SclarConverter &operator=(SclarConverter const &rhs);
-		
-		static void convert(std::string const& value);
+		Serializer &operator=(Serializer const &rhs);
+
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif
