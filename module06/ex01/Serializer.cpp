@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:25 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/24 16:14:42 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:58:13 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Serializer & Serializer::operator=(Serializer const &rhs)
 
 uintptr_t	Serializer::serialize(Data* ptr)
 {
-	uintptr_t conversion = reinterpret_cast<uintptr_t>(&ptr);
+	uintptr_t conversion = reinterpret_cast<uintptr_t>(ptr);
 	return (conversion);
 }
 

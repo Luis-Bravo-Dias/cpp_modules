@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:17:25 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/24 16:36:58 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:59:38 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void)
 	std::cout << "Data before serialization" << std::endl <<
 		d.data_char << std::endl << d.data_int << std::endl <<
 			d.data_str << std::endl;
+
 
 	uintptr_t uint = s.serialize(&d);
 	Data	*new_d = s.deserialize(uint);
