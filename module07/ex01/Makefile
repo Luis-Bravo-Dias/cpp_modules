@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/25 14:28:28 by lleiria-          #+#    #+#              #
-#    Updated: 2023/09/04 12:44:12 by lleiria-         ###   ########.fr        #
+#    Created: 2023/09/04 15:54:46 by lleiria-          #+#    #+#              #
+#    Updated: 2023/09/04 15:55:24 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,11 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= base
+NAME 		= iter
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
-				utilsBase.cpp \
-				Base.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
