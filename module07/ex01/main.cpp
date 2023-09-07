@@ -6,23 +6,23 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:18:19 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/05 11:40:50 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:51:15 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-void printStr(std::string str)
+void printStr(const std::string &str)
 {
 	std::cout << str << std::endl;
 }
 
-void printten(int n)
+void printten(const int &n)
 {
 	std::cout << n * 10 << std::endl;
 }
 
-void printcap(char c)
+void printcap(const char &c)
 {
 	std::cout << static_cast<char>(c - ('a' - 'A')) << std::endl;
 }
@@ -30,13 +30,35 @@ void printcap(char c)
 int main()
 {
     std::string test[] = {"zero", "um", "dois", "tres", "quatro"};
-	iter(test, 5, printStr);
+	iter<std::string>(&test[0], 5, printStr);
 
     int test2[] = {1,2,3,4,5,6,7,8,9};
-	iter(test2, 9, printten);
+	iter<int>(&test2[0], 9, printten);
 
     char test3[] = {'a','z','b','p','r','y','u','f','g'};
-	iter(test3, 9, printcap);
+	iter<char>(&test3[0], 9, printcap);
 
     return 0;
 }
+
+// class Awesome
+// {
+// 	public:
+// 		Awesome( void ) : _n( 42 ) { return; }
+// 		int get( void ) const { return this->_n; }
+// 	private:
+// 		int _n;
+// };
+// 	std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+	
+// 	template< typename T >
+// 	void print( T const & x ) { std::cout << x << std::endl; return; }
+
+// int main()
+// {
+// 	int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+// 	Awesome tab2[5];
+// 	iter( tab, 5, print );
+// 	iter( tab2, 5, print );
+// 	return 0;
+// }	
