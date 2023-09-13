@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:41:26 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/12 16:57:51 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:27:30 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Span
 		Span &operator=(Span const &rhs);
 
 		void addNumber(int nbr);
+		void addRangeNumber(int begin, int end);
 		int shortestSpan();
 		int longestSpan();
 
@@ -46,6 +47,15 @@ class Span
 				virtual const char* what() const throw()
 				{
 					return ("There is no possible span");
+				}	
+		};
+
+		class WrongValuesException :public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Set correctly the begining and the end of the range");
 				}	
 		};
 

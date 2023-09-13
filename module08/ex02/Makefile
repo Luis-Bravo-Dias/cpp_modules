@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/12 11:30:06 by lleiria-          #+#    #+#              #
-#    Updated: 2023/09/13 16:10:09 by lleiria-         ###   ########.fr        #
+#    Created: 2023/09/13 16:56:31 by lleiria-          #+#    #+#              #
+#    Updated: 2023/09/13 16:57:01 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,11 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= span
+NAME 		= mutantstack
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
-				Span.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 

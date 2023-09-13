@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:23:04 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/12 16:59:38 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:28:05 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ void Span::addNumber(int nbr)
 	}
 }
 
+void Span::addRangeNumber(int begin, int end)
+{
+	if (begin > end)
+		throw WrongValuesException();
+	for (int i = begin; i <= end; i++)
+		this->addNumber(i);
+}
 
 int	Span::shortestSpan(void)
 {
