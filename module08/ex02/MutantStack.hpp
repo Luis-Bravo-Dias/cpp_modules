@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:30:58 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/14 16:51:33 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:53:13 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,98 +16,63 @@
 # include <iostream>
 # include <stack>
 # include <vector>
+# include <iterator>
+# include <deque>
+# include <list>
 
-template <typename T>
-class MutantStack
+
+template< typename T, typename C = std::deque<T> >
+class MutantStack : public std::stack<T, C >
 {
-	public:
-		MutantStack(void){};
-		MutantStack(MutantStack const &src)
-		{
-			*this = src;
-		}
-		~MutantStack(void){};
-		
-		MutantStack &operator=(MutantStack const &rhs)
-		{
-			if (this != &rhs)
-				this->_myStack = rhs._myStack;
-			return (*this);
-		}
+private:
 
-		class iterator
-		{
-			public:
-				iterator(typename std::stack<T>::container_type::iterator iterator) : it(iterator) {}
+public:
 
-        		T& operator*()
-				{
-        		    return *it;
-        		}
-				
-				bool operator==(const iterator& other) const
-				{
-					return it == other.it;
-				}
+	MutantStack();
+	MutantStack(MutantStack const &src);
+	~MutantStack();
+	MutantStack& operator=(MutantStack const &rhs);
+
+	typedef typename MutantStack<T, C>::container_type::iterator			iterator;
+	typedef typename MutantStack<T, C>::container_type::reverse_iterator	r_iterator;
 	
-				bool operator!=(const iterator& other) const
-				{
-					return it != other.it;
-				}
-	
-				iterator& operator++()
-				{
-					++it;
-					return (*this);
-				}
-	
-				iterator& operator--()
-				{
-					--it;
-					return (*this);
-				}
-				
-			private:
-				typename std::stack<T>::container_type::iterator it;
-		};
-
-		void push(const T& value)
-		{
-			_myStack.push(value);
-		}
-
-		void pop()
-		{
-			_myStack.pop();
-		}
-
-		T &top(void)
-		{
-			return _myStack.top();
-		}
-
-		bool empty() const
-		{
-			return _myStack.empty();
-		}
-
-		size_t size() const
-		{
-			return _myStack.size();
-		}
-
-		iterator begin()
-		{
-			return iterator(_myStack.c.begin());
-		}
-		
-		iterator end()
-		{
-			return iterator(_myStack.c.end());
-		}
-	
-	private:
-		std::stack<T> _myStack;	
+	typename C::iterator begin();
+	typename C::iterator end();
+	typename C::iterator rbegin();
+	typename C::iterator rend();
 };
+
+template< typename T, typename C >
+MutantStack<T, C>::MutantStack() :std::stack<T, C>(){
+}
+
+template< typename T, typename C >
+MutantStack<T, C>::MutantStack(MutantStack const &src) :std::stack<T, C>(){
+	if(this != &src)
+		*this = src;
+}
+
+template< typename T, typename C >
+MutantStack<T, C>::~MutantStack(){}
+
+template< typename T, typename C >
+typename C::iterator MutantStack<T, C>::begin(){
+	return(this->std::stack<T, C>::c.begin());
+}
+
+template< typename T, typename C >
+typename C::iterator MutantStack<T, C>::end(){
+	return(this->std::stack<T, C>::c.end());
+}
+
+template< typename T, typename C >
+typename C::iterator MutantStack<T, C>::rbegin(){
+	return(this->std::stack<T, C>::c.rbegin());
+}
+
+template< typename T, typename C >
+typename C::iterator MutantStack<T, C>::rend(){
+	return(this->std::stack<T, C>::c.rend());
+}
 
 #endif
