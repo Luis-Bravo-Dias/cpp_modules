@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:21:25 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/28 11:41:35 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:55:23 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ Form::Form(std::string name, int gradeSign, int gradeExec): _name(name),  _signe
 {
 	std::cout << "Default Form constructor called" << std::endl;
 	if (gradeSign < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (gradeSign > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 	if (gradeExec < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (gradeExec > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 Form::Form(Form const &src): _name(src.getFormName()), _gradeSign(src.getGradeSign()), _gradeExec(src.getGradeExec())
@@ -38,7 +38,7 @@ Form::~Form(void)
 
 Form & Form::operator=(Form const &rhs)
 {
-	(void)rhs;
+	this->_signed = rhs._signed;
 	return (*this);
 }
 
@@ -60,6 +60,16 @@ int	Form::getGradeSign(void) const
 int Form::getGradeExec(void) const
 {
 	return (this->_gradeExec);
+}
+
+const char* Form::GradeTooHighException::what(void) const throw()
+{
+	return ("Grade too high");
+}
+
+const char* Form::GradeTooLowException::what(void) const throw()
+{
+	return ("Grade too low");
 }
 
 void Form::beSigned(Bureaucrat const &bc)

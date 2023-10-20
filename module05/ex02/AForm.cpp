@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:54:25 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 12:19:39 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:19:43 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ AForm::AForm(std::string name, int gradeSign, int gradeExec): _name(name),  _sig
 {
 	std::cout << "Default AForm constructor called" << std::endl;
 	if (gradeSign < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (gradeSign > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	if (gradeExec < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (gradeExec > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 AForm::AForm(AForm const &src): _name(src.getFormName()), _gradeSign(src.getGradeSign()), _gradeExec(src.getGradeExec())
@@ -38,7 +38,7 @@ AForm::~AForm(void)
 
 AForm & AForm::operator=(AForm const &rhs)
 {
-	(void)rhs;
+	this->_signed = rhs._signed;
 	return (*this);
 }
 
@@ -60,6 +60,21 @@ int	AForm::getGradeSign(void) const
 int AForm::getGradeExec(void) const
 {
 	return (this->_gradeExec);
+}
+
+const char* AForm::GradeTooHighException::what(void) const throw()
+{
+	return ("Grade too high");
+}
+
+const char* AForm::GradeTooLowException::what(void) const throw()
+{
+	return ("Grade too low");
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return ("This Form is not signed");
 }
 
 void AForm::beSigned(Bureaucrat const &bc)

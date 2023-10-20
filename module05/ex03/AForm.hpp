@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:33:03 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 14:33:05 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:08:38 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,13 @@ class AForm
 		class GradeTooHighException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Grade too high");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Grade too low");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class FormNotSignedException :public std::exception

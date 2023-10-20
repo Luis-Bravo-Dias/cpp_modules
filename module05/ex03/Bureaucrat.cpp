@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:33:14 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/12 15:24:15 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:12:03 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
 	std::cout << "Default Bureaucrat constructor called" << std::endl;
 	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	else
 		this->_grade = grade;
 }
@@ -64,6 +64,16 @@ void Bureaucrat::gradeDown(int down)
 	if (this->_grade + down > 150)
 		throw GradeTooLowException();
 	this->_grade += down;
+}
+
+const char* Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return ("Grade too high");
+}
+
+const char* Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return ("Grade too low");
 }
 
 void Bureaucrat::signForm(AForm &f)

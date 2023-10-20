@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:34:19 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 14:34:21 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:20:59 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,13 @@ class PresidentialPardonForm : public AForm
 		class ExecGradeException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Invalid grade to execute");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class NotSignedException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("This form is not signed");
-				}
+				virtual const char* what() const throw();
 		};
 	
 	private:

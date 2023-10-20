@@ -6,13 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:34:10 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 15:04:23 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:20:35 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("presidential pardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("Presidential Pardon", 25, 5)
 {
 	this->_target = target;
 	std::cout << "Default PresidentialPardonForm constructor called" << std::endl;
@@ -36,6 +36,16 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 	return (*this);
 }
 
+const char* PresidentialPardonForm::ExecGradeException::what() const throw()
+{
+	return ("Invalid grade to execute");
+}
+
+const char* PresidentialPardonForm::NotSignedException::what() const throw()
+{
+	return ("This form is not signed");
+}
+
 void PresidentialPardonForm::execute(Bureaucrat const & executer) const
 {
 	if (executer.getGrade() <= 5)
@@ -45,8 +55,8 @@ void PresidentialPardonForm::execute(Bureaucrat const & executer) const
 			std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 		}
 		else
-			throw PresidentialPardonForm::NotSignedException();
+			throw NotSignedException();
 	}
 	else
-		throw PresidentialPardonForm::ExecGradeException();
+		throw ExecGradeException();
 }

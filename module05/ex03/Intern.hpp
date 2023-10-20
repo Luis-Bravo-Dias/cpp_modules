@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:47:42 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 17:12:28 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:18:37 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ class 	Intern
 		class FormNotFoundException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("There's not form with that name, verify that is writen correctly in lower case");
-				}
+				virtual const char* what() const throw();
 		};
 	
 	private:

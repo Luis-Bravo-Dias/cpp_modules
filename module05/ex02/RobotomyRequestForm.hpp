@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:59:38 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 10:59:39 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:01:00 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,19 @@ class RobotomyRequestForm : public AForm
 		class ExecGradeException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Invalid grade to execute");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class NotSignedException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("This form is not signed");
-				}
+				virtual const char* what() const throw();
 		};
 
         class RobotomyFailedException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Robotomizacion failed");
-				}
+				virtual const char* what() const throw();
 		};
 	
 	private:

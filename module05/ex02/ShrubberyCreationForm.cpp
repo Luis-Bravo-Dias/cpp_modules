@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:58:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/05 16:16:38 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:04:01 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	if (this != &rhs)
 		this->_target = rhs._target;
 	return (*this);
+}
+
+const char* ShrubberyCreationForm::ExecGradeException::what() const throw()
+{
+	return ("Invalid grade to execute");
+}
+
+const char* ShrubberyCreationForm::NotSignedException::what() const throw()
+{
+	return ("This form is not signed");
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executer) const
@@ -65,8 +75,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executer) const
 			file.close();
 		}
 		else
-			throw ShrubberyCreationForm::NotSignedException();
+			throw NotSignedException();
 	}
 	else
-		throw ShrubberyCreationForm::ExecGradeException();
+		throw ExecGradeException();
 }

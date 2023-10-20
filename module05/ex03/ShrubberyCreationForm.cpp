@@ -6,13 +6,13 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:34:47 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 15:04:37 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:22:34 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("shrubbery creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery Creation", 145, 137)
 {
 	this->_target = target;
 	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
@@ -34,6 +34,16 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	if (this != &rhs)
 		this->_target = rhs._target;
 	return (*this);
+}
+
+const char* ShrubberyCreationForm::ExecGradeException::what() const throw()
+{
+	return ("Invalid grade to execute");
+}
+
+const char* ShrubberyCreationForm::NotSignedException::what() const throw()
+{
+	return ("This form is not signed");
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executer) const
@@ -65,8 +75,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executer) const
 			file.close();
 		}
 		else
-			throw ShrubberyCreationForm::NotSignedException();
+			throw NotSignedException();
 	}
 	else
-		throw ShrubberyCreationForm::ExecGradeException();
+		throw ExecGradeException();
 }

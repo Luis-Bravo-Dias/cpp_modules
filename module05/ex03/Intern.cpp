@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:47:54 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/09 17:37:00 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:18:25 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ Intern & Intern::operator=(Intern const &rhs)
 	return (*this);
 }
 
+const char* Intern::FormNotFoundException::what() const throw()
+{
+	return ("There's not form with that name, verify that is writen correctly in lower case");
+}
+
 AForm	*Intern::makeForm(std::string formName, std::string target)
 {
 	int cases = 0;
@@ -56,6 +61,6 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 	case 2:
 		return (new PresidentialPardonForm(target));
 	default:
-		throw Intern::FormNotFoundException();
+		throw FormNotFoundException();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:09:22 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/31 10:35:59 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:14:23 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,13 @@ int	main(void)
 		// Bureaucrat emerson("Emerson", 160);
 		// std::cout << emerson << " is born" << std::endl;
 		Form b50 ("B50", 50, 50);
+		Form d27 ("D27", 27, 27);
 		std::cout << b50 << std::endl;
 		emilia.signForm(b50);
 		std::cout << b50 << std::endl;
+		std::cout << d27 << std::endl;
+		d27 = b50;
+		std::cout << d27 << std::endl;
 
 		Bureaucrat bob("Bob", 23);
 		std::cout << bob << " is born" << std::endl;
