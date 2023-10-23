@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:33:03 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/20 17:08:38 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/23 12:42:20 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ class AForm
 		class FormNotSignedException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("This Form is not signed");
-				}
+				virtual const char* what() const throw();
 		};
 	
 	private:

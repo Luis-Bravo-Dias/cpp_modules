@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 12:03:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/22 16:11:43 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:31:11 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	SclarConverter::convert(std::string const& value)
 			std::cout << "Error: wrong type of argument, please enter a int, a char, a float or a double" << std::endl;
 		else
 		{
-			goChar(val_int, isFLoat, isDouble);
+			goChar(value, val_int, isFLoat, isDouble);
 			goInt(value, val_int);
 			goFloat(value, val_float, val_double);
 			goDouble(value, val_double);
