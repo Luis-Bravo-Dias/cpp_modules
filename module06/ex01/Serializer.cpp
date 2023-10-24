@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:25 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/08/25 10:58:13 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:46:11 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ uintptr_t	Serializer::serialize(Data* ptr)
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
+	if (raw == 0)
+        return 0;
 	Data* goBack = reinterpret_cast<Data*>(raw);
 	return (goBack);
 }

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 12:03:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/23 17:31:11 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:09:53 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,15 @@ void	SclarConverter::convert(std::string const& value)
 	else if ((value.find(".", 1) != value.npos && value.find(".", 1) == value.rfind(".")) &&
 		value.find_first_not_of("0123456789.") == value.npos)
 		isDouble = true;
+	if (isFLoat == true && value.find_first_of("-") != value.npos)
+	{
+		std::cout << "Error: There are not negative floats" << std::endl;
+		return ;
+	}
 	
-	if (value.find_first_not_of("0123456789.f", 1) == value.npos)
+	if (value.find_first_not_of("-0123456789.f", 1) == value.npos)
 	{	
-		if ((isChar == false && value.find_first_not_of("0123456789.f") != value.npos) ||
+		if ((isChar == false && value.find_first_not_of("-0123456789.f") != value.npos) ||
 			(value.find_first_not_of("f") == value.npos && isFLoat == false) ||
 				(value.find(".", 1) != value.npos && isDouble == false && isFLoat == false))
 			std::cout << "Error: wrong type of argument, please enter a int, a char, a float or a double" << std::endl;

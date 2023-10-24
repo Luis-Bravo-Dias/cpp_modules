@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:30:58 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/15 16:53:13 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:51:56 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <iterator>
 # include <deque>
 # include <list>
+
+// class AMateria;
+
+// std::vector<AMateria *> vtr;
+
+// std::vector<AMateria *>::iterator itr = vtr.begin();
+
+// vtr.erase();
 
 
 template< typename T, typename C = std::deque<T> >
