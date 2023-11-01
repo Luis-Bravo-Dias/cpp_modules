@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:14:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/30 10:54:15 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:12:01 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int main()
     }
 
 	std::cout << std::endl;
+
+	Array<std::string> test;
 	
 	std::cout << "test has a size of " << test.size() << std::endl;
 	try {
@@ -61,7 +63,7 @@ int main()
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-    return 0;
+return 0;
 }
 
 

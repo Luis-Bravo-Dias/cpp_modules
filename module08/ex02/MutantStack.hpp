@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:30:58 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/24 16:51:56 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:50:51 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,24 @@ public:
 };
 
 template< typename T, typename C >
-MutantStack<T, C>::MutantStack() :std::stack<T, C>(){
-}
+MutantStack<T, C>::MutantStack() :std::stack<T, C>(){}
 
 template< typename T, typename C >
-MutantStack<T, C>::MutantStack(MutantStack const &src) :std::stack<T, C>(){
+MutantStack<T, C>::MutantStack(MutantStack const &src) :std::stack<T, C>()
+{
 	if(this != &src)
 		*this = src;
 }
 
 template< typename T, typename C >
 MutantStack<T, C>::~MutantStack(){}
+
+template <typename T, typename C>
+MutantStack<T, C>&	MutantStack<T, C>::operator=(MutantStack const& rhs)
+{
+	std::stack<T>::c = rhs.std::stack<T>::c;
+	return (*this);
+}
 
 template< typename T, typename C >
 typename C::iterator MutantStack<T, C>::begin(){

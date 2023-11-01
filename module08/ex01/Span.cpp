@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:23:04 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/14 14:50:19 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:52:00 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ Span & Span::operator=(Span const &rhs)
 	}
 	return (*this);
 }
+
+const char* Span::IsFullException::what() const throw()
+{
+	return ("The class is full, more numbers can't be added");
+}
+
+const char* Span::NoSpanException::what() const throw()
+{
+	return ("There is no possible span");
+}
+
+const char* Span::WrongValuesException::what() const throw()
+{
+	return ("Set correctly the begining and the end of the range");
+}	
 
 void Span::addNumber(int nbr)
 {

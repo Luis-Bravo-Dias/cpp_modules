@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:52:18 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/15 16:52:18 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:18:22 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,21 @@ int main()
 		++it2;
 	}
 	std::list<int> s1(mstack2);
+
+	std::cout << std::endl;
+
+	MutantStack<int> mstack3;
+	mstack3 = mstack;
+	std::cout << "top: " << mstack3.top() << std::endl;
+	std::cout << "size: " << mstack3.size() << std::endl;
+	MutantStack<int>::iterator it3 = mstack3.begin();
+	MutantStack<int>::iterator ite3 = mstack3.end();
+	++it3;
+	--it3;
+	while (it3 != ite3)
+	{
+		std::cout << "it: " << *it3 << std::endl;
+		++it3;
+	}
 	return 0;
 }

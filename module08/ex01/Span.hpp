@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:41:26 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/13 16:27:30 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:51:27 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,19 @@ class Span
 		class IsFullException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("The class is full, more numbers can't be added");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class NoSpanException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("There is no possible span");
-				}	
+				virtual const char* what() const throw();
 		};
 
 		class WrongValuesException :public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return ("Set correctly the begining and the end of the range");
-				}	
+				virtual const char* what() const throw();
 		};
 
 		private:
