@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 14:16:36 by lleiria-          #+#    #+#              #
-#    Updated: 2023/11/01 16:31:53 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/11/02 17:04:40 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME 		= btc
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				BitcoinExchange.cpp \
 				
 OBJS		= $(SRCS:.cpp=.o)
 
