@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:29:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/07 15:16:27 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/08 17:18:12 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,62 @@ int valid_date(std::string line)
         return (0);
     return(1);
 }
-
-void valid_value(std::string line)
+template<typename T>
+T valid_value(std::string sValue, bool isFloat, T defaultValue)
 {
-    
+    (void)defaultValue;
+	if (isFloat == true)
+	{
+        float   fValue = std::atof(sValue.c_str());
+        if (fValue < 0)
+        {
+            std::cout << "Error: not a positive number." << std::endl;
+            return (0);
+        }
+        if (fValue > 1000)
+        {
+            std::cout << "Error: too large a number." << std::endl;
+            return (0);
+        }
+        return (fValue);
+    }
+    else
+    {
+        long int	iValue = std::atol(sValue.c_str());
+        if (iValue < 0)
+        {
+            std::cout << "Error: not a positive number." << std::endl;
+            return (0);
+        }
+        if (iValue > 1000)
+        {
+            std::cout << "Error: too large a number." << std::endl;
+            return (0);
+        }
+        return (iValue);
+    }
+	return (0);
 }
 
+std::map<std::string, float> &fillData(void)
+{
+	std::ifstream data;
+    data.open("data.csv");
+	std::map<std::string, float> dataMap;
+	if (data.is_open())
+	{
+		std::string line;
+    	while (std::getline(data, line))
+		{
+			
+		}
+	}
+}
+template<typename T>
+void	compare_data(std::string date, T value)
+{
+	std::map<std::string, float> data = fillData();
+}
 int not_valid(std::ifstream &input)
 {
     std::string line;
@@ -79,7 +129,22 @@ int not_valid(std::ifstream &input)
         {
             if (valid_date(line))
             {
-                valid_value(line);
+				std::string date = line.substr(0, 10);
+				std::string sValue = line.substr(13);
+				bool	isFloat = false;
+    			if ((sValue.find(".", 1) != sValue.npos && sValue.find(".", 1) == sValue.rfind(".")) &&
+					sValue.find_first_not_of("0123456789.") == sValue.npos)
+        			{isFloat = true;}
+				if (isFloat == true)
+				{
+					float fValue = valid_value(sValue, isFloat, 0.0f);
+					std::cout << "Value = " << fValue << std::endl;
+				}
+				else
+				{
+					int iValue = valid_value(sValue, isFloat, 0);
+					std::cout << "Value = " << iValue << std::endl;
+				}
             }
             else
                 std::cout << "Error: bad input => " << line << std::endl;
