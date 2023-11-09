@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:29:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/08 17:18:12 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:50:06 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,9 @@ int valid_date(std::string line)
         return (0);
     return(1);
 }
-template<typename T>
-T valid_value(std::string sValue, bool isFloat, T defaultValue)
+
+float valid_value(std::string sValue, bool isFloat)
 {
-    (void)defaultValue;
 	if (isFloat == true)
 	{
         float   fValue = std::atof(sValue.c_str());
@@ -84,7 +83,7 @@ T valid_value(std::string sValue, bool isFloat, T defaultValue)
     }
     else
     {
-        long int	iValue = std::atol(sValue.c_str());
+        long int	iValue = std::atoi(sValue.c_str());
         if (iValue < 0)
         {
             std::cout << "Error: not a positive number." << std::endl;
@@ -100,7 +99,7 @@ T valid_value(std::string sValue, bool isFloat, T defaultValue)
 	return (0);
 }
 
-std::map<std::string, float> &fillData(void)
+std::map<std::string, float> fillData(void)
 {
 	std::ifstream data;
     data.open("data.csv");
@@ -110,15 +109,26 @@ std::map<std::string, float> &fillData(void)
 		std::string line;
     	while (std::getline(data, line))
 		{
-			
+            std::string date = line.substr(0, 10);
+            float   value = std::atof(line.substr(12).c_str());
+			dataMap.insert(std::make_pair(date, value));
 		}
 	}
+    data.close();
+    return (dataMap);
 }
-template<typename T>
-void	compare_data(std::string date, T value)
+
+void	compare_data(std::string date, float value)
 {
 	std::map<std::string, float> data = fillData();
+    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); ++it)
+    {
+        std::cout << "Date: " << it->first << ", Value: " << it->second << std::endl;
+        if (date <= )
+    }
+    
 }
+
 int not_valid(std::ifstream &input)
 {
     std::string line;
@@ -135,16 +145,12 @@ int not_valid(std::ifstream &input)
     			if ((sValue.find(".", 1) != sValue.npos && sValue.find(".", 1) == sValue.rfind(".")) &&
 					sValue.find_first_not_of("0123456789.") == sValue.npos)
         			{isFloat = true;}
-				if (isFloat == true)
-				{
-					float fValue = valid_value(sValue, isFloat, 0.0f);
-					std::cout << "Value = " << fValue << std::endl;
-				}
-				else
-				{
-					int iValue = valid_value(sValue, isFloat, 0);
-					std::cout << "Value = " << iValue << std::endl;
-				}
+				float value = valid_value(sValue, isFloat);
+				std::cout << "Value = " << value << std::endl;
+                if (value)
+                {
+                    compare_data(date, value);
+                }
             }
             else
                 std::cout << "Error: bad input => " << line << std::endl;
