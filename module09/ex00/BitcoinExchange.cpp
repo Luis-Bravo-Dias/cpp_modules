@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:29:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/09 11:50:06 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:16:33 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,39 +64,20 @@ int valid_date(std::string line)
     return(1);
 }
 
-float valid_value(std::string sValue, bool isFloat)
+float valid_value(std::string sValue)
 {
-	if (isFloat == true)
-	{
-        float   fValue = std::atof(sValue.c_str());
-        if (fValue < 0)
-        {
-            std::cout << "Error: not a positive number." << std::endl;
-            return (0);
-        }
-        if (fValue > 1000)
-        {
-            std::cout << "Error: too large a number." << std::endl;
-            return (0);
-        }
-        return (fValue);
-    }
-    else
+    float   fValue = std::atof(sValue.c_str());
+    if (fValue < 0)
     {
-        long int	iValue = std::atoi(sValue.c_str());
-        if (iValue < 0)
-        {
-            std::cout << "Error: not a positive number." << std::endl;
-            return (0);
-        }
-        if (iValue > 1000)
-        {
-            std::cout << "Error: too large a number." << std::endl;
-            return (0);
-        }
-        return (iValue);
+        std::cout << "Error: not a positive number." << std::endl;
+        return (0);
     }
-	return (0);
+    if (fValue > 1000)
+    {
+        std::cout << "Error: too large a number." << std::endl;
+        return (0);
+    }
+    return (fValue);
 }
 
 std::map<std::string, float> fillData(void)
@@ -110,7 +91,7 @@ std::map<std::string, float> fillData(void)
     	while (std::getline(data, line))
 		{
             std::string date = line.substr(0, 10);
-            float   value = std::atof(line.substr(12).c_str());
+            float   value = std::atof(line.substr(11).c_str());
 			dataMap.insert(std::make_pair(date, value));
 		}
 	}
@@ -118,21 +99,29 @@ std::map<std::string, float> fillData(void)
     return (dataMap);
 }
 
-void	compare_data(std::string date, float value)
+void compare_data(const std::string& date, float value)
 {
-	std::map<std::string, float> data = fillData();
-    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); ++it)
+    std::map<std::string, float> data = fillData();
+    std::map<std::string, float>::iterator it = data.upper_bound(date);
+    if (it != data.begin())
     {
-        std::cout << "Date: " << it->first << ", Value: " << it->second << std::endl;
-        if (date <= )
+        --it;
+        float convert = value * it->second;
+        std::cout << date << " => " << value << " = " << convert << std::endl;
+    } else {
+        std::cout << "No date before or on the input date found." << std::endl;
     }
-    
 }
 
-int not_valid(std::ifstream &input)
+void btc(std::ifstream &input)
 {
     std::string line;
     std::getline(input, line);
+    if (line != "date | value")
+    {
+        std::cout << "Input file not valid" << std::endl;
+        return ;
+    }
     while (std::getline(input, line))
     {
         if (valid_format(line))
@@ -141,16 +130,9 @@ int not_valid(std::ifstream &input)
             {
 				std::string date = line.substr(0, 10);
 				std::string sValue = line.substr(13);
-				bool	isFloat = false;
-    			if ((sValue.find(".", 1) != sValue.npos && sValue.find(".", 1) == sValue.rfind(".")) &&
-					sValue.find_first_not_of("0123456789.") == sValue.npos)
-        			{isFloat = true;}
-				float value = valid_value(sValue, isFloat);
-				std::cout << "Value = " << value << std::endl;
+				float value = valid_value(sValue);
                 if (value)
-                {
                     compare_data(date, value);
-                }
             }
             else
                 std::cout << "Error: bad input => " << line << std::endl;
@@ -158,5 +140,4 @@ int not_valid(std::ifstream &input)
         else
             std::cout << "Error: bad input => " << line << std::endl;
     }
-    return (0);
 }
