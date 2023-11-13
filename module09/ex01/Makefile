@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 13:22:57 by lleiria-          #+#    #+#              #
-#    Updated: 2023/11/10 15:09:54 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/11/13 17:05:01 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME 		= RPN
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				RPN.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
