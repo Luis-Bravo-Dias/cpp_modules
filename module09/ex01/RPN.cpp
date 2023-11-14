@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:34:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/13 17:18:32 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:28:25 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,55 @@
 
 void rpn(std::string equation)
 {
-	if (equation.find_first_of("0123456789", 1) > equation.find_first_of("+-*/"))
-	{
-		std::cout << "Error" << std::endl;
-		return ;
-	}
-	int nbrs = 0;
-	int ops = 0;
-	int	i = 0;
+	std::stack<int> nbrStack;
+	
+	int i = 0;
 	while (equation[i])
 	{
 		if (equation[i] >= '0' && equation[i] <= '9')
-			nbrs++;
+		{
+			std::string sNbr = equation.substr(i, 1);
+			int iNbr = std::atoi(sNbr.c_str());
+			std::cout << "The number is " << iNbr << std::endl;
+			nbrStack.push(iNbr);
+		}
 		if (equation[i] == '+' || equation[i] == '-' || equation[i] == '*' || equation[i] == '/')
-			ops++;
+		{
+			if (nbrStack.size() < 2)
+			{
+				std::cout << "Error" << std::endl;
+				return ;
+			}
+			int nbr2 = nbrStack.top();
+			nbrStack.pop();
+			int nbr1 = nbrStack.top();
+			nbrStack.pop();
+			int result = 0;
+			char op = equation[i];
+			switch (op)
+			{
+				case '+':
+            		result = nbr1 + nbr2;
+            		break;
+        		case '-':
+            		result = nbr1 - nbr2;
+            		break;
+        		case '*':
+            		result = nbr1 * nbr2;
+            		break;
+        		case '/':
+            		if (nbr2 != 0)
+                		result = nbr1 / nbr2;
+					else
+					{
+                		std::cout << "Error" << std::endl;
+                		return ;
+            		}
+            		break;
+			}
+			nbrStack.push(result);
+		}
 		i++;
 	}
-	std::cout << "nbrs = " << nbrs << " ops = " << ops << std::endl; 
-	if (ops >= nbrs || ops == 0 || nbrs == 0)
-	{
-		std::cout << "Error" << std::endl;
-		return ;
-	}
+	std::cout << nbrStack.top() << std::endl;
 }
