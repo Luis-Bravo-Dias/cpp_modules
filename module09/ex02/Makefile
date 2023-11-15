@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/10 13:22:57 by lleiria-          #+#    #+#              #
-#    Updated: 2023/11/15 12:15:57 by lleiria-         ###   ########.fr        #
+#    Created: 2023/11/15 12:15:35 by lleiria-          #+#    #+#              #
+#    Updated: 2023/11/15 12:46:17 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,11 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= RPN
+NAME 		= PmergeMe
 
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
-				RPN.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 

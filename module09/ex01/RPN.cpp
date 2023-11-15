@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:34:51 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/14 15:28:25 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:14:13 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void rpn(std::string equation)
 		{
 			std::string sNbr = equation.substr(i, 1);
 			int iNbr = std::atoi(sNbr.c_str());
-			std::cout << "The number is " << iNbr << std::endl;
 			nbrStack.push(iNbr);
 		}
 		if (equation[i] == '+' || equation[i] == '-' || equation[i] == '*' || equation[i] == '/')
