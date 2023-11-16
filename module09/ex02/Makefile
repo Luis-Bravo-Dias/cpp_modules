@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 12:15:35 by lleiria-          #+#    #+#              #
-#    Updated: 2023/11/15 12:46:17 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/11/16 14:44:32 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME 		= PmergeMe
 INCLUDE 	= -I ./
 
 SRCS 		= 	main.cpp \
+				PmergeMe.cpp
 				
 OBJS		= $(SRCS:.cpp=.o)
 
