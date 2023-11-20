@@ -6,21 +6,11 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:59 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/16 17:46:11 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/17 11:22:36 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-// long long	get_time(void)
-// {
-// 	struct timeval	tv;
-// 	long long		time;
-
-// 	gettimeofday(&tv, NULL);
-// 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-// 	return (time);
-// }
 
 void	insertVec(std::vector<int>& vec, int left, int right)
 {
@@ -51,36 +41,6 @@ void mergeVec(std::vector<int>& vec, int left, int mid, int right)
 		r[j] = vec[mid + 1 + j];
 	std::vector<int>::iterator it = vec.begin() + left;
 	std::merge(l.begin(), l.end(), r.begin(), r.end(), it);
-
-	// int i = 0;
-	// int j = 0;
-	// int k = 0;
-	// while (i < n1 && j < n2)
-	// {
-	// 	if (l[i] <= r[j])
-	// 	{
-	// 		vec[k] = l[i];
-	// 		++i;
-	// 	}
-	// 	else
-	// 	{
-	// 		vec[k] = r[j];
-	// 		++j;
-	// 	}
-	// 	++k;
-	// }
-	// while (i < n1)
-	// {
-	// 	vec[k] = l[i];
-	// 	++i;
-	// 	++k;
-	// }
-	// while (j < n2)
-	// {
-	// 	vec[k] = r[j];
-	// 	++j;
-	// 	++k;
-	// }
 }
 
 void	mergeInsertVec(std::vector<int>& vec, int left, int right, int limit)
@@ -127,36 +87,6 @@ void mergeDeque(std::deque<int>& deq, int left, int mid, int right)
 
 	std::deque<int>::iterator it = deq.begin() + left;
 	std::merge(l.begin(), l.end(), r.begin(), r.end(), it);
-
-    // int i = 0;
-    // int j = 0;
-    // int k = 0;
-
-    // while (i < n1 && j < n2)
-	// {
-    //     if (l[i] <= r[j]) {
-    //         deq[k] = l[i];
-    //         ++i;
-    //     } else {
-    //         deq[k] = r[j];
-    //         ++j;
-    //     }
-    //     ++k;
-    // }
-
-    // while (i < n1)
-	// {
-    //     deq[k] = l[i];
-    //     ++i;
-    //     ++k;
-    // }
-
-    // while (j < n2)
-	// {
-    //     deq[k] = r[j];
-    //     ++j;
-    //     ++k;
-    // }
 }
 
 void mergeInsertDeque(std::deque<int>& deq, int left, int right, int limit)

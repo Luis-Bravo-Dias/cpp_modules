@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:29:53 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/11/10 13:16:33 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:06:24 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,22 +108,18 @@ void compare_data(const std::string& date, float value)
         --it;
         float convert = value * it->second;
         std::cout << date << " => " << value << " = " << convert << std::endl;
-    } else {
-        std::cout << "No date before or on the input date found." << std::endl;
     }
+    else
+        std::cout << "No date before or on the input date found." << std::endl;
 }
 
 void btc(std::ifstream &input)
 {
     std::string line;
-    std::getline(input, line);
-    if (line != "date | value")
-    {
-        std::cout << "Input file not valid" << std::endl;
-        return ;
-    }
     while (std::getline(input, line))
     {
+        if (line == "date | value")
+            std::getline(input, line);
         if (valid_format(line))
         {
             if (valid_date(line))
